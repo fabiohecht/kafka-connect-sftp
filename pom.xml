@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.breezeehr</groupId>
+  <artifactId>kafka-connect-sftp</artifactId>
+  <version>${version}</version>
+  <description>
+    A Kafka Connect sftp sink connector for copying data between sftp and
+    Kafka.
+  </description>
+  <organization>
+    <name>Breeze EHR</name>
+    <url>http://www.breezeehr.com</url>
+  </organization>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <scm>
+    <connection>scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git</connection>
+    <url>https://github.com/Breezeemr/kafka-connect-sftp</url>
+    <developerConnection>scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git</developerConnection>
+  </scm>
+  <developers>
+    <developer>
+      <id>favila</id>
+      <name>Francis Avila</name>
+      <organization>Breeze EHR</organization>
+      <organizationUrl>http://www.breezeehr.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <version>1.0-SNAPSHOT</version>
+    <kafka.version>0.10.2.0</kafka.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.kafka</groupId>
+      <artifactId>connect-api</artifactId>
+      <version>${kafka.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>0.1.54</version>
+    </dependency>
+  </dependencies>
+
+
+</project>
