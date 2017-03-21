@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.breezeehr</groupId>
   <artifactId>kafka-connect-sftp</artifactId>
-  <version>${version}</version>
+  <version>1.0-SNAPSHOT</version>
   <description>
     A Kafka Connect sftp sink connector for copying data between sftp and
     Kafka.
@@ -20,6 +20,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
@@ -28,9 +29,12 @@
     </plugins>
   </build>
   <scm>
-    <connection>scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git</connection>
+    <connection>scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git
+    </connection>
     <url>https://github.com/Breezeemr/kafka-connect-sftp</url>
-    <developerConnection>scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git</developerConnection>
+    <developerConnection>
+      scm:git:git@github.com/Breezeemr/kafka-connect-sftp.git
+    </developerConnection>
   </scm>
   <developers>
     <developer>
@@ -42,8 +46,9 @@
   </developers>
 
   <properties>
-    <version>1.0-SNAPSHOT</version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kafka.version>0.10.2.0</kafka.version>
+    <jsch.version>0.1.54</jsch.version>
   </properties>
 
   <dependencies>
@@ -55,9 +60,9 @@
     <dependency>
       <groupId>com.jcraft</groupId>
       <artifactId>jsch</artifactId>
-      <version>0.1.54</version>
+      <version>${jsch.version}</version>
     </dependency>
   </dependencies>
-
+  <packaging>jar</packaging>
 
 </project>
