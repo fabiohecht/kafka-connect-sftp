@@ -45,13 +45,16 @@ public class SftpSinkTask extends SinkTask {
         try {
             session.connect(5000);
         } catch (JSchException e) {
+            session = null;
             throw new ConnectException("Could not establish ssh connection", e);
         }
         try {
             channel = (ChannelSftp) session.openChannel("sftp");
             channel.connect(5000);
         } catch (JSchException e) {
+            channel = null;
             session.disconnect();
+            session = null;
             throw new ConnectException("Could not open sftp channel", e);
         }
         file_prefix = props.get(SftpSinkConnector.FILE_PREFIX);
@@ -86,11 +89,13 @@ public class SftpSinkTask extends SinkTask {
     public void stop() {
         file_prefix = null;
         try {
-            channel.disconnect();
+            if (channel != null)
+                channel.disconnect();
         } finally {
             channel = null;
             try {
-                session.disconnect();
+                if (session != null)
+                    session.disconnect();
             } finally {
                 session = null;
             }
